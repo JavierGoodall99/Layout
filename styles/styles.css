@@ -1,0 +1,106 @@
+.container {
+  background-color: #f1f1f1; /* Background color of the container */
+  margin: 40px; /* Margin around the container */
+  position: relative; /* Positioning context for absolute positioning of child elements */
+  height: 88vh; /* Height of the container using viewport height */
+}
+
+.corner-box {
+  width: 80px; /* Width of the corner boxes */
+  height: 80px; /* Height of the corner boxes */
+  position: absolute; /* Positioning the corner boxes absolutely within the container */
+}
+
+.top-left {
+  top: 0px; /* Positioning the top-left corner box at the top */
+  left: 0px; /* Positioning the top-left corner box at the left */
+  background-color: #41cbf9; /* Background color of the top-left corner box */
+}
+
+.top-right {
+  top: 0px; /* Positioning the top-right corner box at the top */
+  right: 0px; /* Positioning the top-right corner box at the right */
+  background-color: #001877; /* Background color of the top-right corner box */
+}
+
+.bottom-left {
+  bottom: 0px; /* Positioning the bottom-left corner box at the bottom */
+  left: 0px; /* Positioning the bottom-left corner box at the left */
+  background-color: #001877; /* Background color of the bottom-left corner box */
+}
+
+.bottom-right {
+  bottom: 0px; /* Positioning the bottom-right corner box at the bottom */
+  right: 0px; /* Positioning the bottom-right corner box at the right */
+  background-color: #41cbf9; /* Background color of the bottom-right corner box */
+}
+
+.middle-box {
+  width: 80px; /* Width of the middle boxes */
+  height: 80px; /* Height of the middle boxes */
+  background-color: #ccc; /* Background color of the middle boxes */
+  position: absolute; /* Positioning the middle boxes absolutely within the container */
+  top: 50%; /* Positioning the middle boxes at the vertical center of the container */
+  left: 50%; /* Positioning the middle boxes at the horizontal center of the container */
+}
+
+#first {
+  z-index: 1; /* Stacking order of the first middle box */
+  background-color: #f17800; /* Background color of the first middle box */
+  top: 10px; /* Positioning the first middle box 10px from the top */
+  left: 15px; /* Positioning the first middle box 15px from the left */
+  width: 80px; /* Width of the first middle box */
+  height: 80px; /* Height of the first middle box */
+  position: absolute; /* Positioning the first middle box absolutely within the container */
+  top: 50%; /* Positioning the first middle box at the vertical center of the container */
+  left: 50%; /* Positioning the first middle box at the horizontal center of the container */
+  transform: translate(-70%, -50%); /* Translating the first middle box to adjust its position */
+}
+
+#second {
+  z-index: auto; /* Default stacking order for the second middle box */
+  background-color: #ccc; /* Background color of the second middle box */
+  top: 30px; /* Positioning the second middle box 30px from the top */
+  left: 35px; /* Positioning the second middle box 35px from the left */
+  width: 80px; /* Width of the second middle box */
+  height: 80px; /* Height of the second middle box */
+  position: absolute; /* Positioning the second middle box absolutely within the container */
+  top: 50%; /* Positioning the second middle box at the vertical center of the container */
+  left: 50%; /* Positioning the second middle box at the horizontal center of the container */
+  transform: translate(-130%, -100%); /* Translating the second middle box to adjust its position */
+}
+
+
+
+/* In response to different screen resolutions, the layout of the boxes is adjusted to provide an optimal user experience. When the screen resolution reaches or falls below 300 pixels, the boxes are arranged in a specific manner. Two boxes are displayed in a row, while an additional box is positioned at the bottom of the row. This layout ensures efficient utilization of available screen space.
+
+As the screen resolution continues to decrease further, the boxes are intelligently stacked in a single row. By adapting to the diminishing screen real estate, this layout design maintains a cohesive and visually pleasing arrangement, prioritizing readability and usability.
+
+These responsive adjustments enhance the user's interaction with the content, offering an optimized and consistent viewing experience across different devices and screen sizes.
+ */
+@media only screen and (max-width: 300px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+
+  .corner-box,
+  .middle-box, 
+  #second,
+  #first   {
+    position: relative;
+    margin: 10px;
+    transform: none;
+    width: 50px;
+    height: 50px;
+  }
+
+  .middle-box,  #second,
+  #first {
+    top: 0;
+    left: 0;
+  }
+}
